@@ -41,7 +41,7 @@ export default function Home() {
   };
 
   const handleCTA = () => {
-    window.open("https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre o Projeto 120 dias", "_blank");
+    window.open("https://wa.me/5517997510946?text=Olá! Gostaria de saber mais sobre o Projeto 120 dias", "_blank");
   };
 
   const transformations = [
@@ -512,13 +512,15 @@ export default function Home() {
             </div>
             <div>
               <h4 className="font-bold text-lg mb-4">Contato</h4>
-              <p className="text-white/70 mb-2">WhatsApp: (11) 99999-9999</p>
-              <p className="text-white/70">Email: contato@mateuscasarini.com</p>
+              <p className="text-white/70 mb-2">WhatsApp: (17) 99751-0946</p>
             </div>
             <div>
               <h4 className="font-bold text-lg mb-4">Redes Sociais</h4>
-              <p className="text-white/70 mb-2">Instagram: @mateuscasarini</p>
-              <p className="text-white/70">Facebook: /mateuscasarini</p>
+              <p className="text-white/70 mb-2">
+                <a href="https://www.instagram.com/mateuscasarini/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  Instagram: @mateuscasarini
+                </a>
+              </p>
             </div>
           </div>
           <div className="border-t border-white/20 pt-8 text-center text-white/70">
