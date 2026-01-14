@@ -44,6 +44,16 @@ export default function Home() {
     window.open("https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre o Projeto 120 dias", "_blank");
   };
 
+  const transformations = [
+    { name: "Mateus", image: "/images/Mateus.png", result: "Transformação Completa", category: "Hipertrofia" },
+    { name: "Berrance", image: "/images/Berrance.png", result: "Definição Máxima", category: "Emagrecimento" },
+    { name: "Maicon", image: "/images/Maicon.png", result: "Ganho de Massa", category: "Performance" },
+    { name: "Victor", image: "/images/Victor.png", result: "Evolução Constante", category: "Saúde" },
+    { name: "Xavero", image: "/images/Xavero.png", result: "Novo Shape", category: "Definição" },
+    { name: "Marcos", image: "/images/Marcos.png", result: "Resultado Real", category: "Transformação" },
+    { name: "Guardia", image: "/images/Guardia.png", result: "Foco Total", category: "Massa Magra" }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Header/Navigation */}
@@ -258,57 +268,26 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="overflow-hidden group hover:shadow-xl transition-all">
-              <CardContent className="p-0">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src="/images/transformation-before-after.jpg" 
-                    alt="Transformação" 
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-bold text-lg">-15kg em 120 dias</p>
-                    <p className="text-sm">Emagrecimento</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {transformations.map((item, index) => (
+              <Card key={index} className="overflow-hidden group hover:shadow-xl transition-all">
+                <CardContent className="p-0">
+                  <div className="relative overflow-hidden aspect-[3/4]">
+                    <img 
+                      src={item.image} 
+                      alt={`Transformação ${item.name}`} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <p className="font-bold text-xl">{item.name}</p>
+                      <p className="text-sm text-primary font-bold uppercase tracking-wider">{item.category}</p>
+                      <p className="text-xs text-white/80 mt-1">{item.result}</p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden group hover:shadow-xl transition-all">
-              <CardContent className="p-0">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src="/images/workout-training.jpg" 
-                    alt="Treino" 
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-bold text-lg">+8kg de massa magra</p>
-                    <p className="text-sm">Ganho de massa</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden group hover:shadow-xl transition-all">
-              <CardContent className="p-0">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src="/images/personal-trainer-coaching.jpg" 
-                    alt="Personal trainer" 
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-bold text-lg">Hipertrofia avançada</p>
-                    <p className="text-sm">Definição muscular</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
