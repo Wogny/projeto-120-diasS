@@ -48,8 +48,6 @@ export default function Home() {
     { name: "Mateus", image: "/images/Mateus.png", result: "Transformação Completa", category: "Hipertrofia" },
     { name: "Berrance", image: "/images/Berrance.png", result: "Definição Máxima", category: "Emagrecimento" },
     { name: "Maicon", image: "/images/Maicon.png", result: "Ganho de Massa", category: "Performance" },
-    { name: "Victor", image: "/images/Victor.png", result: "Evolução Constante", category: "Saúde" },
-    { name: "Xavero", image: "/images/Xavero.png", result: "Novo Shape", category: "Definição" },
     { name: "Marcos", image: "/images/Marcos.png", result: "Resultado Real", category: "Transformação" },
     { name: "Guardia", image: "/images/Guardia.png", result: "Foco Total", category: "Massa Magra" }
   ];
@@ -268,22 +266,24 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {transformations.map((item, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-xl transition-all">
+              <Card key={index} className="overflow-hidden group hover:shadow-xl transition-all border-none shadow-none bg-transparent">
                 <CardContent className="p-0">
-                  <div className="relative overflow-hidden aspect-[3/4]">
+                  {/* Texto acima da imagem */}
+                  <div className="mb-4 px-2">
+                    <h3 className="font-black text-2xl text-secondary">{item.name}</h3>
+                    <p className="text-sm text-primary font-bold uppercase tracking-wider">{item.category}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{item.result}</p>
+                  </div>
+                  
+                  {/* Imagem */}
+                  <div className="relative overflow-hidden aspect-[3/4] rounded-xl shadow-lg">
                     <img 
                       src={item.image} 
                       alt={`Transformação ${item.name}`} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <p className="font-bold text-xl">{item.name}</p>
-                      <p className="text-sm text-primary font-bold uppercase tracking-wider">{item.category}</p>
-                      <p className="text-xs text-white/80 mt-1">{item.result}</p>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
