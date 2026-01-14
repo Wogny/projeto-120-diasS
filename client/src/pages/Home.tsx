@@ -21,7 +21,10 @@ import {
   TrendingUp,
   Activity,
   ChevronDown,
-  Menu
+  Menu,
+  PlayCircle,
+  Zap,
+  ShieldAlert
 } from "lucide-react";
 import { useState } from "react";
 
@@ -128,13 +131,17 @@ export default function Home() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                Alcance o corpo dos seus{" "}
-                <span className="text-primary">sonhos</span>
+                O Mapa exato para transformar seu <span className="text-primary">shape</span> em 120 dias
               </h1>
 
-              <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-                Programa completo de <strong>emagrecimento</strong>, <strong>ganho de massa magra</strong> ou <strong>hipertrofia</strong> personalizado por Mateus Casarini
-              </p>
+              <div className="space-y-4 mb-8">
+                <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-bold">
+                  Sem dietas caras e treinos cheio de firulas
+                </p>
+                <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+                  Se você seguir esse plano, seu corpo não será mais o mesmo
+                </p>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -177,15 +184,74 @@ export default function Home() {
         </button>
       </section>
 
+      {/* Dor e Frustração Section */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 text-destructive font-bold mb-6 uppercase tracking-widest">
+              <ShieldAlert className="h-6 w-6" />
+              <span>Chega de perder tempo</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black mb-8 leading-tight">
+              Sem remédio, sem esteroides anabolizantes, sem destruir sua saúde
+            </h2>
+            <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p>
+                Não é planilha 3 de 10, eu não vou fazer você perder tempo, eu respeito seu dinheiro e sei que você já tentou de tudo e sempre acaba sendo mais do mesmo.
+              </p>
+              <p className="font-medium text-foreground">
+                Treinos genéricos, dietas malucas e te forçando a usar as "paradinhas" e o velho papo de que nem planta cresce natural.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Apresentação da Solução Section */}
+      <section className="py-20 bg-secondary text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 skew-x-12 translate-x-1/2" />
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-primary px-4 py-1 rounded-md mb-6">
+                <Zap className="h-5 w-5 fill-white" />
+                <span className="font-bold uppercase text-sm">A Solução Definitiva</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
+                Método eficaz e que realmente funciona
+              </h2>
+              <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                Você nunca treinou assim antes, sem firula e sem essa de fazer 3 de 10 ou 4 de 20, isso aqui já era, a indústria fitness mentiu pra você.
+              </p>
+              <Button 
+                onClick={handleCTA}
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-white font-bold px-10 py-6 text-lg"
+              >
+                CONHECER O MÉTODO
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-primary/20 rounded-lg blur-2xl" />
+              <img 
+                src="/images/workout-training.jpg" 
+                alt="Treino Intenso" 
+                className="relative rounded-lg shadow-2xl border-2 border-white/10"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Resultados Section */}
       <section id="resultados" className="py-20 bg-white">
         <div className="container">
           <div className="text-center mb-16">
             <p className="text-primary font-bold text-sm uppercase tracking-wider mb-4">
-              Resultados Reais
+              FOTOS DE ANTES E DEPOIS
             </p>
             <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Transformações em 120 dias
+              Transformações Reais
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Veja os resultados alcançados por pessoas que confiaram no método
@@ -247,7 +313,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 Pilares Section */}
+      {/* O QUE O CLIENTE VAI RECEBER Section */}
       <section className="py-20 bg-muted relative">
         <div 
           className="absolute top-0 left-0 right-0 h-24 bg-white"
@@ -259,260 +325,77 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="text-center mb-16">
             <p className="text-primary font-bold text-sm uppercase tracking-wider mb-4">
-              Metodologia Completa
+              Conteúdo Exclusivo
             </p>
             <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Os 4 Pilares do Projeto 120 dias
+              O que você vai receber
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                  <Dumbbell className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Fichas de Treino Personalizadas</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Treinos adaptados ao seu objetivo específico e nível de condicionamento. Cada exercício com vídeo demonstrativo, séries, repetições e tempo de descanso.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                  <Apple className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Dieta Individualizada</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Plano alimentar completo baseado nas suas preferências, rotina e objetivos. Refeições práticas e saborosas que cabem no seu dia a dia.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                  <Calculator className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Calculadora de Gasto Calórico</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Ferramenta exclusiva para calcular seu gasto energético e ajustar sua dieta com precisão para maximizar seus resultados.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                  <MessageCircle className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Suporte Completo</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Acompanhamento contínuo via WhatsApp, materiais em vídeo e PDF, e suporte para tirar todas as suas dúvidas durante os 120 dias.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Table */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <div className="text-center mb-16">
-            <p className="text-primary font-bold text-sm uppercase tracking-wider mb-4">
-              Compare e Veja
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Por que escolher o Projeto 120 dias?
-            </h2>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Outros programas */}
-              <Card className="border-2 border-destructive/20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: <Dumbbell className="h-8 w-8 text-primary" />,
+                title: "Fichas de Treino",
+                desc: "Fichas completas para quem treina 3x, 4x, 5x e 6x na semana"
+              },
+              {
+                icon: <Apple className="h-8 w-8 text-primary" />,
+                title: "Dietas Personalizadas",
+                desc: "Planos alimentares de acordo com seu gasto calórico"
+              },
+              {
+                icon: <Calculator className="h-8 w-8 text-primary" />,
+                title: "Calculadora de Gasto",
+                desc: "Ferramenta para calcular seu gasto calórico exato"
+              },
+              {
+                icon: <Video className="h-8 w-8 text-primary" />,
+                title: "Vídeo Aulas",
+                desc: "Como tirar o máximo proveito das suas fichas de treino"
+              },
+              {
+                icon: <Zap className="h-8 w-8 text-primary" />,
+                title: "Técnicas de Intensidade",
+                desc: "Como aplicar intensidade real ao seu treino"
+              },
+              {
+                icon: <PlayCircle className="h-8 w-8 text-primary" />,
+                title: "Biblioteca de Exercícios",
+                desc: "Vídeos demonstrando a execução mais eficiente de cada exercício"
+              },
+              {
+                icon: <Activity className="h-8 w-8 text-primary" />,
+                title: "Séries e Execução",
+                desc: "Como executar séries de aquecimento, preparatórias e de trabalho"
+              }
+            ].map((item, i) => (
+              <Card key={i} className="border-2 hover:border-primary transition-all hover:shadow-lg">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-center">Outros Programas</h3>
-                  <ul className="space-y-4">
-                    {[
-                      "Treino genérico para todos",
-                      "Dieta padrão sem personalização",
-                      "Sem suporte ou acompanhamento",
-                      "Materiais básicos ou inexistentes",
-                      "Sem ferramentas de controle"
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <X className="h-6 w-6 text-destructive flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </p>
                 </CardContent>
               </Card>
-
-              {/* Projeto 120 dias */}
-              <Card className="border-2 border-primary shadow-lg">
-                <CardContent className="p-8 bg-primary/5">
-                  <h3 className="text-2xl font-bold mb-6 text-center text-primary">Projeto 120 dias</h3>
-                  <ul className="space-y-4">
-                    {[
-                      "Fichas de treino personalizadas",
-                      "Dieta individualizada completa",
-                      "Suporte via WhatsApp durante 120 dias",
-                      "Vídeos, PDFs e materiais exclusivos",
-                      "Calculadora de gasto calórico"
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="font-medium">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Escolha seu objetivo */}
-      <section id="beneficios" className="py-20 bg-secondary text-white relative">
-        <div className="container relative z-10">
-          <div className="text-center mb-16">
-            <p className="text-primary font-bold text-sm uppercase tracking-wider mb-4">
-              Personalize Sua Jornada
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Escolha seu objetivo
-            </h2>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
-              O Projeto 120 dias se adapta ao seu objetivo específico
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-primary transition-all hover:shadow-xl">
-              <CardContent className="p-8 text-center">
-                <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <TrendingDown className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Emagrecimento</h3>
-                <p className="text-white/80 leading-relaxed">
-                  Perca peso de forma saudável e sustentável, mantendo massa muscular e energia
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-primary transition-all hover:shadow-xl">
-              <CardContent className="p-8 text-center">
-                <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <TrendingUp className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Ganho de Massa</h3>
-                <p className="text-white/80 leading-relaxed">
-                  Aumente massa magra de qualidade com treino e nutrição otimizados
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-primary transition-all hover:shadow-xl">
-              <CardContent className="p-8 text-center">
-                <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Activity className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Hipertrofia</h3>
-                <p className="text-white/80 leading-relaxed">
-                  Maximize o crescimento muscular com técnicas avançadas e nutrição precisa
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Como funciona */}
-      <section id="como-funciona" className="py-20 bg-white relative">
-        <div 
-          className="absolute top-0 left-0 right-0 h-24 bg-secondary"
-          style={{
-            clipPath: "polygon(0 0, 100% 0, 100% 50%, 0 100%)",
-          }}
-        />
-
-        <div className="container relative z-10">
-          <div className="text-center mb-16">
-            <p className="text-primary font-bold text-sm uppercase tracking-wider mb-4">
-              Processo Simples
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Como funciona o Projeto 120 dias
-            </h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              {[
-                {
-                  number: "01",
-                  title: "Entre em contato",
-                  description: "Clique no botão e fale comigo pelo WhatsApp para conhecer melhor o programa"
-                },
-                {
-                  number: "02",
-                  title: "Escolha seu objetivo",
-                  description: "Defina se seu foco é emagrecimento, ganho de massa magra ou hipertrofia"
-                },
-                {
-                  number: "03",
-                  title: "Receba seu plano personalizado",
-                  description: "Em até 48h você recebe suas fichas de treino, dieta e todos os materiais"
-                },
-                {
-                  number: "04",
-                  title: "Comece sua transformação",
-                  description: "Inicie o programa com suporte completo durante todos os 120 dias"
-                }
-              ].map((step, i) => (
-                <div key={i} className="flex gap-6 items-start group">
-                  <div className="bg-primary text-white text-3xl font-black w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    {step.number}
-                  </div>
-                  <div className="flex-1 pt-2">
-                    <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button 
-              onClick={handleCTA}
-              size="lg" 
-              className="text-lg px-12 py-6 font-bold shadow-lg hover:shadow-xl transition-all"
-            >
-              QUERO COMEÇAR MINHA TRANSFORMAÇÃO
-            </Button>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Sobre Mateus Casarini */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-white">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img 
-                  src="/images/personal-trainer-coaching.jpg" 
+                  src="/images/queméoseutreinador.png" 
                   alt="Mateus Casarini" 
-                  className="rounded-lg shadow-xl"
+                  className="rounded-lg shadow-xl w-full"
                   style={{
                     clipPath: "polygon(0 10%, 100% 0, 100% 100%, 0 100%)",
                   }}
@@ -543,7 +426,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-muted">
         <div className="container">
           <div className="text-center mb-16">
             <p className="text-primary font-bold text-sm uppercase tracking-wider mb-4">
@@ -583,7 +466,7 @@ export default function Home() {
             ].map((faq, i) => (
               <Card 
                 key={i} 
-                className="border-2 hover:border-primary transition-all cursor-pointer"
+                className="border-2 hover:border-primary transition-all cursor-pointer bg-white"
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
               >
                 <CardContent className="p-6">
